@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "端口密码管家",
+  "version": "1.0",
+  "description": "支持手动配置每个端口的字段映射，实现精准自动填充",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}

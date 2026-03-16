@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body { width: 550px; padding: 10px; font-family: Arial, sans-serif; }
+    #originDisplay { font-weight: bold; margin-bottom: 10px; background: #f0f0f0; padding: 5px; border-radius: 3px; }
+    .mode-selector { margin-bottom: 10px; padding: 5px; background: #e8f0fe; border-radius: 3px; }
+    .mode-selector label { margin-right: 15px; }
+    .field-row { display: flex; margin-bottom: 5px; align-items: center; background: #f9f9f9; padding: 5px; border-radius: 3px; }
+    .field-row span { display: inline-block; width: 40px; margin-right: 5px; font-weight: bold; }
+    .field-row .field-value { flex: 1; margin-right: 5px; padding: 4px; border: 1px solid #ccc; border-radius: 3px; }
+    .field-row button { width: 50px; }
+    #fieldsContainer { max-height: 300px; overflow-y: auto; border: 1px solid #ccc; padding: 5px; margin-bottom: 10px; border-radius: 3px; }
+    .action-btn { margin-right: 5px; margin-bottom: 10px; padding: 5px 10px; }
+    #message { margin-top: 10px; color: green; }
+  </style>
+</head>
+<body>
+  <h3>🔐 端口密码管家</h3>
+  <div id="originDisplay"></div>
+
+  <div class="mode-selector">
+    <label><input type="radio" name="matchMode" value="origin" checked> 按完整域名（含端口）</label>
+    <label><input type="radio" name="matchMode" value="port"> 仅按端口（忽略主机名）</label>
+  </div>
+
+  <h4>已记住的字段（按索引）</h4>
+  <div id="fieldsContainer"></div>
+
+  <div>
+    <button id="captureBtn" class="action-btn">📸 捕获当前表单</button>
+    <button id="saveBtn" class="action-btn">💾 保存修改</button>
+    <button id="fillBtn" class="action-btn">⚡ 立即填充</button>
+    <button id="refreshBtn" class="action-btn">🔄 刷新列表</button>
+  </div>
+
+  <div id="message"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
